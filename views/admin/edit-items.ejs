@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Jewelry</title>
+     <!-- Latest compiled and minified CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+     <br><br>
+     <form action='/admin/add-items' method="POST" enctype="multipart/form-data">
+
+          <!-- Categories -->
+          <select class="form-select" aria-label="Default select example" name="categoryId">
+               <option selected>Open this select menu</option>
+               <% for (let category of categories) { %>
+                    <option value="<%= category._id %>"><%= category.title %></option>
+               <% } %>
+             </select>
+
+          <!-- Items -->
+          <div class="form-group">
+            <label for="item">Add Title</label>
+            <input type="text" class="form-control" id="item" name="title" placeholder="Add Item's Title">
+          </div>
+
+          <div class="form-group">
+               <label for="item">Add Images</label>
+               <input type="file" class="form-control" id="item" name="images" placeholder="Add Images">
+          </div>
+
+          <!-- Description or Content -->
+          <div class="form-group">
+               <label for="description" >Description</label>
+               <textarea 
+                   class="form-control"
+                   name="description" 
+                   id="description" 
+                   rows="5"
+                   placeholder="Add Item's Description"></textarea>
+           </div>
+
+          <div class="form-group">
+               <label for="price">Price</label>
+               <input type="text" class="form-control" id="price" name="price" placeholder="Add Item's Price">
+          </div>
+
+          <!-- Sale or Sold Out -->
+          <div class="form-group">
+               <select class="form-select" aria-label="Default select example" name="itemRemain">
+                    <option selected>Open this select menu</option>
+                         <option value="Sale">Sale</option>
+                         <option value="Sold Out">Sold Out</option>
+               </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+     <!-- Latest compiled and minified JavaScript -->
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+     <script>
+          console.log(categories);
+     </script>
+</body>
+</html>
